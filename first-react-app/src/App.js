@@ -1,21 +1,22 @@
 import './App.css';
-import ClassComponents from './components/ClassComponent';
-import FunctionComponent from './components/FunctionComponent';
-
+import ClassComponents from './pages/ClassComponent';
+import FunctionComponent from './pages/FunctionComponent';
+import { useState } from 'react';
+import {Routes,Route} from 'react-router-dom';
 function App() {
+  const author="Abhi";
+  const [name,setName] = useState("Abhijth");
   return (
-    <div className="App">
-
-       <p>Classs Component:
-       </p>
-       <ClassComponents />
-       <br/>
-
-       <p>Function Components:</p>
-       <FunctionComponent/>
-       <FunctionComponent/>
-
-    </div>
+    <Routes>
+      <Route path='/' element={<ClassComponents/>}/>
+      <Route path='/functional-Component' element={<FunctionComponent
+      name={name}
+    age={10}
+  author={author}
+setName={setName}
+/>}/>
+   </Routes>
+    
   );
 }
 
